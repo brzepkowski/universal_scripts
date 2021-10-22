@@ -14,27 +14,17 @@ def spin_1_2(J, L, D):
     Sz2 = Sz**2
 
     H = np.zeros([4, 4], dtype=np.complex)
-    # print("[0] H:")
-    # print(H)
 
     H -= J * np.matmul(np.kron(Sx, I),np.kron(I, Sx))
-    # print("[1] H:")
-    # print(H)
     H -= J * np.matmul(np.kron(Sy, I), np.kron(I, Sy))
-    # print("[2] H:")
-    # print(H)
     H -= J * np.matmul(np.kron(Sz, I), np.kron(I, Sz))
-    # print("[3] H:")
-    # print(H)
 
     H -= L * np.matmul(np.kron(Sz, I), np.kron(I, Sz))
-    # print("[4] H:")
-    # print(H)
 
     H -= D * np.kron(Sz2, I)
     H -= D * np.kron(I, Sz2)
 
-    print("[0] H:")
+    print("H:")
     print(H)
 
     eigenvals, eigenvecs = np.linalg.eig(H)

@@ -2,6 +2,9 @@ import numpy as np
 from math import sqrt
 import sys
 
+def comutator(A, B):
+        return np.matmul(A,B) - np.matmul(B,A)
+
 def spin_model(J, L, D):
     print("J: ", J)
     print("L: ", L)
@@ -138,6 +141,23 @@ def spin_model(J, L, D):
 
     expected_value = np.matmul(np.matmul(np.conj(psi_groundstate.T), I_Sz), psi_groundstate)
     print("I_Sz: ", expected_value)
+
+
+    print("#### COMUTATORS ####")
+    print("[Sz, Sz^2]:")
+    print(comutator(Sz, Sz2))
+
+    print("[Sz, Sx]:")
+    print(comutator(Sz, Sx))
+
+    print("[Sz, Sx^2]:")
+    print(comutator(Sz, Sx2))
+
+    print("[Sz, Sy]:")
+    print(comutator(Sz, Sy))
+
+    print("[Sz, Sy^2]:")
+    print(comutator(Sz, Sy2))
 
 
 if __name__ == "__main__":
